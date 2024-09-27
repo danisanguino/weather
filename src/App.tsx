@@ -9,7 +9,8 @@ function App() {
   
   const [weather, setWeather] = useState<WeatherApiResponse>();
   const [inputValue, setInputValue] = useState<string>();
-  const [url, setUrl] = useState<string | undefined>()
+  const [url, setUrl] = useState<string | undefined>();
+  const [urlError, setUrlError] = useState<string | null>()
   
   
   //funcion control del input
@@ -28,14 +29,19 @@ function App() {
 
   //función llamada Api
   const callApiWeather = async (url: string) => {
+
     try {
           const resp = await fetch(url);
+          if (!resp.ok) {
+            throw new Error("error que")
+          }
           const data: WeatherApiResponse = await resp.json();
-          
           setWeather(data);
+          setUrlError(null);
         
       } catch (error) {
-          console.log("Aqui no furula algo Juan")
+          console.log("Something is wrong with de URL")
+          setUrlError("error to set")
       }
   }
 
@@ -49,7 +55,13 @@ function App() {
   return (
   <>
     <h1>THE WEATHER FOR YOU</h1>
+
+    {
+      urlError ? <h5>"Please insert a valid Location"</h5>: ""
+    }
+
     <section className='container-weather'>
+
       <div className='input-days'>
             <form onSubmit={ handleSubmit }>
                 <input
@@ -57,7 +69,7 @@ function App() {
                   type="text"
                   placeholder='Location, CP...'
                   value={inputValue || ""}
-                  onChange={handleInputChange}
+                  onChange={ handleInputChange }
                 />
             </form>
 

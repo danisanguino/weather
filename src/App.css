@@ -18,6 +18,13 @@ h1 {
   font-size: 3rem;
 }
 
+h5 {
+  font-size: 1em;
+  color: red;
+  font-weight: bold;
+  margin: 10px;
+}
+
 .container-weather {
   text-align: center;
   display: flex;
@@ -45,6 +52,7 @@ input {
   padding: 1rem;
   box-sizing: border-box;
   height: 100%;
+  border: 1px solid rgb(213, 213, 213);
 }
 
 .input-days {
@@ -64,6 +72,7 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border: 1px solid rgb(213, 213, 213);
 }
 
 .card-days .day {
@@ -85,6 +94,7 @@ input {
   width: 50%;
   background-color: white;
   border-radius: 5px;
+  border: 1px solid rgb(213, 213, 213);
 }
 
 .card img {
