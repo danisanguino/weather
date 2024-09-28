@@ -91,7 +91,7 @@ input {
 
 .card-days .day h4 {
   font-size: 0.7rem;
-  margin: 9px 0 0 0;
+  margin: 3px 0 0 0;
 }
 
 .card {
@@ -139,12 +139,11 @@ input {
 
   .card-days {
     width: 100%;
-    display: none;
     box-sizing: border-box; 
+    flex-wrap: wrap;
   }
-
+  
   .card-days .day {
-    width: 12%;
     box-sizing: border-box; 
   }
 

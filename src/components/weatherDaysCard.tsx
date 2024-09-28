@@ -16,8 +16,10 @@ export const WeatherDaysCard = (props: WeatherApiResponse) => {
           <div className="day" key={e.date}>
             <p>{getDayOfWeek(e.date)}</p>
             <img src={e.day.condition.icon} alt={e.day.condition.text} />
-            <h4>Max {e.day.maxtemp_c}º </h4>
-            <h4>Min {e.day.mintemp_c}º</h4>
+            <h4>Max </h4>
+            <h4>{e.day.maxtemp_c}º </h4>
+            <h4>Min</h4>
+            <h4>{e.day.mintemp_c}º</h4>
         </div>
       ))}
 
