@@ -24,7 +24,7 @@ function App() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
       
-    setUrl(`http://api.weatherapi.com/v1/forecast.json?key=86af34dd3c794c26831102238242409&q=${inputValue}&days=7`);
+    setUrl(`https://api.weatherapi.com/v1/forecast.json?key=86af34dd3c794c26831102238242409&q=${inputValue}&days=7`);
   }
   
   const fetchWeather = async () => {
@@ -101,7 +101,7 @@ function App() {
               onChange={ handleInputChange }
             />
         </form>
-        
+
         {
           weather ?
           // Weather today
