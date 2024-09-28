@@ -34,11 +34,15 @@ h5 {
   margin: 0 10px 0 10px;
 }
 
-.container-weather h3 {
+.container-weather-mobile {
+  display: none;
+}
+
+ h3 {
   padding-bottom: 1rem;
 }
 
-.container-weather h2 {
+ h2 {
   font-size: 5rem;
   font-weight: 400;
   padding: 0;
@@ -98,6 +102,52 @@ input {
 }
 
 .card img {
-  height: 100px;
+  height: 120px;
   margin: 0;
 }
+
+@media (max-width: 720px) {
+  .container-weather {
+    display: none;
+  }
+
+  .container-weather-mobile{
+      text-align: center;
+      flex-direction: column;
+      display: flex;
+      gap: 0.7rem;
+      max-width: 100%;
+      margin: 0 10px 0 10px;
+      box-sizing: border-box;
+      align-items:center;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box; 
+  }
+
+  .card {
+    width: 100%;
+    box-sizing: border-box; 
+
+  }
+
+  .card-days {
+    width: 100%;
+    display: none;
+    box-sizing: border-box; 
+  }
+
+  .card-days .day {
+    width: 12%;
+    box-sizing: border-box; 
+  }
+
+  
+}
+

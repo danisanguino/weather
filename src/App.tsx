@@ -3,6 +3,7 @@ import './App.css'
 import { WeatherCard } from './components/weatherCard';
 import { WeatherDaysCard } from './components/weatherDaysCard';
 import { WeatherApiResponse } from './interfaces/weatherInterfaceDays';
+import { callApiWeather } from './utils/callApi';
 
 
 function App() {
@@ -26,30 +27,21 @@ function App() {
     setUrl(`http://api.weatherapi.com/v1/forecast.json?key=86af34dd3c794c26831102238242409&q=${inputValue}&days=7`);
   }
   
-
-  //función llamada Api
-  const callApiWeather = async (url: string) => {
-
-    try {
-          const resp = await fetch(url);
-          if (!resp.ok) {
-            throw new Error("error que")
-          }
-          const data: WeatherApiResponse = await resp.json();
-          setWeather(data);
-          setUrlError(null);
-        
+  const fetchWeather = async () => {
+    if (url) {
+      try {
+        const data = await callApiWeather(url); // Usamos la función importada
+        setWeather(data);
+        setUrlError(null);
       } catch (error) {
-          console.log("Something is wrong with de URL")
-          setUrlError("error to set")
+        setUrlError("Error fetching weather data");
       }
-  }
+    }
+  };
 
   useEffect(() => {
-    if (url) {
-      callApiWeather(url)
-    }
-  }, [url])
+    fetchWeather();
+  }, [url]);
   
 
   return (
@@ -60,8 +52,9 @@ function App() {
       urlError ? <h5>"Please insert a valid Location"</h5>: ""
     }
 
+    {/* LAPTOP   */}
     <section className='container-weather'>
-
+      {/* Input */}
       <div className='input-days'>
             <form onSubmit={ handleSubmit }>
                 <input
@@ -74,6 +67,7 @@ function App() {
             </form>
 
             {
+              // Weather in days
               weather ?
               <WeatherDaysCard
                 {...weather}
@@ -84,6 +78,7 @@ function App() {
       </div>
     {
       weather ?
+      // Weather today
       <WeatherCard
         {...weather}
         />
@@ -92,7 +87,47 @@ function App() {
     }
       
     </section>
+
+  {/* MOBILE */}
+        <section className='container-weather-mobile'>
+          {/* Input */}
+          
+        <form onSubmit={ handleSubmit }>
+            <input
+              name ="searchLocation"
+              type="text"
+              placeholder='Location, CP...'
+              value={inputValue || ""}
+              onChange={ handleInputChange }
+            />
+        </form>
+        
+        {
+          weather ?
+          // Weather today
+          <WeatherCard
+            {...weather}
+            />
+          :
+          <h3>Plase insert a Location</h3>
+        }
+
+        {
+          // Weather in days
+          weather ?
+          <WeatherDaysCard
+            {...weather}
+            />
+          :
+          ""
+        }
+          
+
+    </section>
+
   </>
+
+
   )
 }
 
