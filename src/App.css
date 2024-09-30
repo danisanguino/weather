@@ -16,6 +16,7 @@ body {
 h1 {
   text-align: center;
   font-size: 3rem;
+  margin: 5px;
 }
 
 h5 {
@@ -107,6 +108,11 @@ input {
 }
 
 @media (max-width: 720px) {
+
+  body {
+    height: auto; 
+  }
+
   .container-weather {
     display: none;
   }
@@ -139,8 +145,8 @@ input {
 
   .card-days {
     width: 100%;
-    box-sizing: border-box; 
     flex-wrap: wrap;
+    height: 230px;
   }
   
   .card-days .day {

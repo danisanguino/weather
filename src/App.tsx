@@ -4,6 +4,9 @@ import { WeatherCard } from './components/weatherCard';
 import { WeatherDaysCard } from './components/weatherDaysCard';
 import { WeatherApiResponse } from './interfaces/weatherInterfaceDays';
 import { callApiWeather } from './utils/callApi';
+// import { WeatherCardLocation } from './components/weatherCardLocation';
+import { WeatherCardGeolocation } from './components/geolocation';
+// import { WeatherDaysCardGeolocation } from './components/weatherDaysCardGeolocation';
 
 
 function App() {
@@ -73,6 +76,7 @@ function App() {
                 {...weather}
                 />
               :
+              // <WeatherDaysCardGeolocation/>
               ""
             }
       </div>
@@ -83,7 +87,7 @@ function App() {
         {...weather}
         />
       :
-      <h3>Plase insert a Location</h3>
+      <WeatherCardGeolocation/>
     }
       
     </section>
@@ -109,7 +113,7 @@ function App() {
             {...weather}
             />
           :
-          <h3>Plase insert a Location</h3>
+          <WeatherCardGeolocation/>
         }
 
         {
