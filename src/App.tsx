@@ -10,6 +10,7 @@ import { WeatherCardGeolocation } from './components/geolocation';
 
 
 function App() {
+
   
   const [weather, setWeather] = useState<WeatherApiResponse>();
   const [inputValue, setInputValue] = useState<string>();
@@ -17,13 +18,13 @@ function App() {
   const [urlError, setUrlError] = useState<string | null>()
   
   
-  //funcion control del input
+  //input control
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   }
 
   
-  //function envio de formulario
+  //form send
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
       
@@ -63,7 +64,7 @@ function App() {
                 <input
                   name ="searchLocation"
                   type="text"
-                  placeholder='Location, CP...'
+                  placeholder='Insert Location'
                   value={inputValue || ""}
                   onChange={ handleInputChange }
                 />
