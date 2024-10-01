@@ -88,8 +88,8 @@ function App() {
             }
       </div>
     {
-      weather ?
       // Weather today
+      weather ?
       <WeatherCard
         {...weather}
         />
@@ -115,8 +115,8 @@ function App() {
         </form>
 
         {
-          weather ?
           // Weather today
+          weather ?
           <WeatherCard
             {...weather}
             />
