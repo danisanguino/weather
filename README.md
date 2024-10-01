@@ -43,7 +43,7 @@
 <ul>
   <li>⚛️ <strong>React</strong>: Frontend framework for building the user interface.</li>
   <li>🟦 <strong>TypeScript</strong>: For static typing and better code maintainability.</li>
-  <li>🌐 <strong>REST API</strong>: Consumes weather data from <a href="https://apiweather.com">apiweather</a>.</li>
+  <li>🌐 <strong>REST API</strong>: Consumes weather data from <a href="https://www.weatherapi.com/">WeatherApi</a>.</li>
   <li>📦 <strong>pnpm</strong>: Package manager used for optimized dependency management.</li>
   <li>🌍 <strong>Geolocation</strong>: Allows the app to fetch weather data based on the user's current location.</li>
 </ul>
