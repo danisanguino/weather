@@ -49,3 +49,7 @@
 </ul>
 
 <p align="center">Feel free to explore, contribute, or provide feedback! 😊</p>
+
+<h2>🚀 Deployed</h2>
+<p><a href="https://weather-app-sanguino.netlify.app/">Netlify</a></p>
+
