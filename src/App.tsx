@@ -4,9 +4,9 @@ import { WeatherCard } from './components/weatherCard';
 import { WeatherDaysCard } from './components/weatherDaysCard';
 import { WeatherApiResponse } from './interfaces/weatherInterfaceDays';
 import { callApiWeather } from './utils/callApi';
-// import { WeatherCardLocation } from './components/weatherCardLocation';
 import { WeatherCardGeolocation } from './components/geolocation';
-// import { WeatherDaysCardGeolocation } from './components/weatherDaysCardGeolocation';
+import { WeatherDaysCardGeolocation } from './components/weatherDaysCardGeolocation';
+
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
   const [inputValue, setInputValue] = useState<string>();
   const [url, setUrl] = useState<string | undefined>();
   const [urlError, setUrlError] = useState<string | null>()
+  const [forecast, setForecast] = useState<any>(null); 
   
   
   //input control
@@ -41,6 +42,10 @@ function App() {
         setUrlError("Error fetching weather data");
       }
     }
+  };
+
+  const handleWeatherDataFetched = (forecastData: any) => {
+    setForecast(forecastData);
   };
 
   useEffect(() => {
@@ -77,8 +82,9 @@ function App() {
                 {...weather}
                 />
               :
-              // <WeatherDaysCardGeolocation/>
-              ""
+              <>
+              {forecast && <WeatherDaysCardGeolocation forecast={forecast} />} 
+              </> 
             }
       </div>
     {
@@ -88,8 +94,9 @@ function App() {
         {...weather}
         />
       :
-      <WeatherCardGeolocation/>
-    }
+      <WeatherCardGeolocation onWeatherDataFetched={handleWeatherDataFetched}/>
+      
+  }
       
     </section>
 
@@ -101,7 +108,7 @@ function App() {
             <input
               name ="searchLocation"
               type="text"
-              placeholder='Location, CP...'
+              placeholder='Insert a location'
               value={inputValue || ""}
               onChange={ handleInputChange }
             />
@@ -114,7 +121,7 @@ function App() {
             {...weather}
             />
           :
-          <WeatherCardGeolocation/>
+          <WeatherCardGeolocation onWeatherDataFetched={handleWeatherDataFetched}/>
         }
 
         {
@@ -124,7 +131,9 @@ function App() {
             {...weather}
             />
           :
-          ""
+          <>
+            {forecast && <WeatherDaysCardGeolocation forecast={forecast} />} 
+          </> 
         }
           
 
