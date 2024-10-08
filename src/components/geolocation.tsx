@@ -50,11 +50,11 @@ export const WeatherCardGeolocation = ({ onWeatherDataFetched }: WeatherCardGeol
   // Llamada a la API de clima
   const fetchWeather = async (lat: number, lon: number) => {
     try {
-      const url = `https://api.weatherapi.com/v1/forecast.json?key=86af34dd3c794c26831102238242409&q=${lat},${lon}&days=7`;
+      const url = `https://api.weatherapi.com/v1/forecast.json?key=c24e7c3f69e04452aad105843240810&q=${lat},${lon}&days=7`;
       const weatherData = await callApiWeather(url);
       setWeather(weatherData); 
       setLoading(false); 
-      onWeatherDataFetched(weatherData.forecast); // Llama al callback con los datos del pronóstico
+      onWeatherDataFetched(weatherData.forecast); 
     } catch (error) {
       setError("Error al obtener el clima.");
       setLoading(false);
